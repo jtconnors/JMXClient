@@ -65,15 +65,13 @@ Our sample JMX scripts (see below) use the ```-interval``` and ```-threshold``` 
 * Once this project is built, ```JMXClient-jdk17.jar``` will be created in the ```target/``` directory.  It contains all the class files needed to run the Latencies,
         ```JMXClientThreadCount``` and ```JMXClientResponseTime``` programs.  This is created by running the ```mvn package``` command from this project's main directory.
 
-* ```ps1\Latencies.ps1``` - PowerShell script used to run the ```Latencies``` Program.
+* [Latencies.ps1](ps1\Latencies.ps1)- PowerShell script used to run the ```Latencies``` Program.
 
-* ```ps1\JMXClientThreadCount.ps1``` - PowerShell script used to run the ```JMXClientThreadCount``` JMX client application with the following arguments: ```-interval:2000 -threshold:20```.  This instructs the program to continue polling the ```Latencies``` program every 2000ms (2 seconds) until the thread count exceeds 20.  Once exceeded, a Java Flight Recorder dump will take place. 
+* [JMXClientThreadCount.ps1](ps1\JMXClientThreadCount.ps1) - PowerShell script used to run the ```JMXClientThreadCount``` JMX client application with the following arguments: ```-interval:2000 -threshold:20```.  This instructs the program to continue polling the ```Latencies``` program every 2000ms (2 seconds) until the thread count exceeds 20.  Once exceeded, a Java Flight Recorder dump will take place. 
     
-* ```ps1\JMXClientResponseTime.ps1``` - PowerShell script used to run the ```JMXClientResponseTime``` JMX client application with the following arguments: ```-interval:2000 -threshold:900```. This instructs the program to continue polling the ```Latencies``` program every 2000ms (2 seconds) until the response time exceeds 900ms.  Once exceeded, a Java Flight Recorder dump will take place.
+* [JMXClientResponseTime.ps1](ps1\JMXClientResponseTime.ps1) - PowerShell script used to run the ```JMXClientResponseTime``` JMX client application with the following arguments: ```-interval:2000 -threshold:900```. This instructs the program to continue polling the ```Latencies``` program every 2000ms (2 seconds) until the response time exceeds 900ms.  Once exceeded, a Java Flight Recorder dump will take place.
 
-* ```env.ps1``` - This is a PowerShell file which is included by the three PowerShell scripts listed above.
-
-* ```README.md``` - this file
+* [env.ps1](ps1\env.ps1) - This is a PowerShell file which is included by the three PowerShell scripts listed above.
 
 <a id="markdown-howtorun" name="howtorun"></a>
 ### 5. How to Run the Example
