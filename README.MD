@@ -30,7 +30,7 @@ Under the com/example/jmxclient source directory are three Java source files:
 Under the ```com/example/latencies``` source directory is our simple JMX managed
 application called ```Latencies```.  When started, this program prompts the user
 to hit ```<Enter>```.  Each time it is pressed, an additional thread is created
-along with extra latency too.  We'll use the our two sample JMX client
+along with extra latency too.  We'll use our two sample JMX client
 programs listed above to get thread count and response time data on this
 running application.
 
