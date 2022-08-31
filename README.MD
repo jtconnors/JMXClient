@@ -18,17 +18,17 @@ The original blog posting on this topic can be found at [https://jtconnors.githu
 ### 1. The Java Applications Included
 
 Under the com/example/jmxclient source directory are three Java source files:
-* [src/main/java/com/example/jmxclient/JMXClient.java](JMXClient.java) - this is an abstract class that does most of the heavy lifting.  It is responsible for creating a JMX client connection to a JMX server application.  It must be extended to become a real client representing a specific mbean.
+* [JMXClient.java](src/main/java/com/example/jmxclient/JMXClient.java) - this is an abstract class that does most of the heavy lifting.  It is responsible for creating a JMX client connection to a JMX server application.  It must be extended to become a real client representing a specific mbean.
 
-* [src/main/java/com/example/jmxclient/JMXClientThreadCount.java](JMXClientThreadCount.java) - this is the first of two example JMX clients that extends the aforementioned JMXClient class. It accesses the  ```java.lang:type=Threading``` mbean and makes a call to the mbean's ```getThreadCount()``` method to retrieve the managed application's thread count.  In order to understand how this JMX client was created, the source code for this example instructs you to make 5 straightforward modifications.
+* [JMXClientThreadCount.java](src/main/java/com/example/jmxclient/JMXClientThreadCount.java) - this is the first of two example JMX clients that extends the aforementioned JMXClient class. It accesses the  ```java.lang:type=Threading``` mbean and makes a call to the mbean's ```getThreadCount()``` method to retrieve the managed application's thread count.  In order to understand how this JMX client was created, the source code for this example instructs you to make 5 straightforward modifications.
 
-* [src/main/java/com/example/jmxclient/JMXClientResponseTime.java](JMXClientResponseTime.java) - this is the second of two sample JMX clients extending the ```JMXClient``` class.  It accesses a custom mbean called ```SimpleAgent:name=SLAReport``` and makes a call to the mbean's ```getResponseTime()``` method. Just like the first example above (```JMXClientThreadCount.java```), the source highlights the 5 modifications needed to make a client of this type.  The main difference here is the simple custom bean proxy (one method) is defined as an inner class.
+* [JMXClientResponseTime.java](src/main/java/com/example/jmxclient/JMXClientResponseTime.java) - this is the second of two sample JMX clients extending the ```JMXClient``` class.  It accesses a custom mbean called ```SimpleAgent:name=SLAReport``` and makes a call to the mbean's ```getResponseTime()``` method. Just like the first example above (```JMXClientThreadCount.java```), the source highlights the 5 modifications needed to make a client of this type.  The main difference here is the simple custom bean proxy (one method) is defined as an inner class.
 
 <a id="markdown-latencies" name="latencies"></a>
 ### 2. Sample JMX Managed Application
 
 Under the ```com/example/latencies``` source directory is our simple JMX managed
-application called Latencies.  When started, this program prompts the user
+application called ```Latencies```.  When started, this program prompts the user
 to hit ```<Enter>```.  Each time it is pressed, an additional thread is created
 along with extra latency too.  We'll use the our two sample JMX client
 programs listed above to get thread count and response time data on this
