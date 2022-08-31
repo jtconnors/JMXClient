@@ -56,7 +56,7 @@ When running JMXClient derived programs, here's the list of available command-li
       -threshold:value
             Specify threshold mbean value which will terminate program
 
-Our sample JMX scripts (see below) use the -interval and -threshold options to mimic Java Flight Recorder trigger behavior.
+Our sample JMX scripts (see below) use the ```-interval``` and ```-threshold``` options to mimic Java Mission Control trigger behavior.
 
 
 <a id="markdown-files" name="files"></a>
@@ -82,16 +82,16 @@ Once this project is built, the following will be created in the project's ```ta
 
 1. Perform ```mvn clean package``` on this (JMXClient) project.
 
-2. Run the ps1\Latencies.ps1 script.  This program instructs the user to hit
+2. Run the ```ps1\Latencies.ps1 script```.  This program instructs the user to hit
        ```<Enter>``` to add threads.  DO NOT HIT ```<Enter>``` YET.
 
-4. Run either the ```JMXClientThreadCount.ps1``` or ```JMXClientResponseTime.ps1```
+4. Run either the ```ps1\JMXClientThreadCount.ps1``` or ```ps1\JMXClientResponseTime.ps1```
        script. It will continually poll the Latencies program until the
        designated "trigger" threshold is met.
 
 5. Return to the ```Latencies.ps1``` window and hit ```<ENTER>``` 4 or 5 times.  This 
        should cause the "trigger" threshold to be met causing a Java Flight 
-       Recorder dump of the Latencies program to the ```Latencies.jfr file```.
+       Recorder dump of the Latencies program to the ```Latencies.jfr``` file.
 
 6. With the created ```Latencies.jfr``` file, you can start Java Mission Control
        (```jmc```) and open the flight recorder file.
