@@ -2,14 +2,15 @@
 #
 # JAVA_HOME environment variable must be set either externally in the Poweshell
 # environment or internally here by uncommenting out the Set-Variable line
-# below and assiging it the location of a valid Oracle JDK 8 runtime.
+# below and assiging it the location of a valid Oracle JDK 17 runtime.
 #
 #$env:JAVA_HOME = 'D:\Oracle\jdk-17'
 
 #
-# Java Flight Recorder was open source in JDK 11.  For JDK 8, we need to
-# invoke Java Flight Recorder with additional command-line options, and hence
-# need to make sure we're running on an Oracle JDK 8 version.
+# Java Flight Recorder was open sourced in JDK 11 and through the years,
+# command-line invocation of JFR has changed.  Make sure we're running
+# on JDK 17.  This may work on other JDK versions, post JDK 8.  That exercise
+# is up to the developer.
 #
 Set-Variable -Name EXPECTED_JDK_VERSION -Value "17"
 

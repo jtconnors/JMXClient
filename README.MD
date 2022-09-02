@@ -65,27 +65,27 @@ Our sample JMX scripts (see below) use the ```-interval``` and ```-threshold``` 
 * Once this project is built, ```JMXClient-jdk17.jar``` will be created in the ```target/``` directory.  It contains all the class files needed to run the Latencies,
         ```JMXClientThreadCount``` and ```JMXClientResponseTime``` programs.  This is created by running the ```mvn package``` command from this project's main directory.
 
-* [Latencies.ps1](ps1/Latencies.ps1)- PowerShell script used to run the ```Latencies``` Program.
+* [Latencies.ps1](ps1/Latencies.ps1) or [Latencies.sh](sh/Latencies.sh) - Windows/MacOS/Linux scripts used to run the ```Latencies``` Program.
 
-* [JMXClientThreadCount.ps1](ps1/JMXClientThreadCount.ps1) - PowerShell script used to run the ```JMXClientThreadCount``` JMX client application with the following arguments: ```-interval:2000 -threshold:20```.  This instructs the program to continue polling the ```Latencies``` program every 2000ms (2 seconds) until the thread count exceeds 20.  Once exceeded, a Java Flight Recorder dump will take place. 
+* [JMXClientThreadCount.ps1](ps1/JMXClientThreadCount.ps1) or [JMXClientThreadCount.sh](sh/JMXClientThreadCount.sh) - Windows/MacOS/Linux scripts used to run the ```JMXClientThreadCount``` JMX client application with the following arguments: ```-interval:2000 -threshold:20```.  This instructs the program to continue polling the ```Latencies``` program every 2000ms (2 seconds) until the thread count exceeds 20.  Once exceeded, a Java Flight Recorder dump will take place. 
     
-* [JMXClientResponseTime.ps1](ps1/JMXClientResponseTime.ps1) - PowerShell script used to run the ```JMXClientResponseTime``` JMX client application with the following arguments: ```-interval:2000 -threshold:900```. This instructs the program to continue polling the ```Latencies``` program every 2000ms (2 seconds) until the response time exceeds 900ms.  Once exceeded, a Java Flight Recorder dump will take place.
+* [JMXClientResponseTime.ps1](ps1/JMXClientResponseTime.ps1) or [JMXClientResponseTime.sh](sh/JMXClientResponseTime.sh) - Windows/MacOS/Linux scripts used to run the ```JMXClientResponseTime``` JMX client application with the following arguments: ```-interval:2000 -threshold:900```. This instructs the program to continue polling the ```Latencies``` program every 2000ms (2 seconds) until the response time exceeds 900ms.  Once exceeded, a Java Flight Recorder dump will take place.
 
-* [env.ps1](ps1/env.ps1) - This is a PowerShell file which is included by the three PowerShell scripts listed above.
+* [env.ps1](ps1/env.ps1) or [env.sh](sh/env.sh) - Windows/MacOS/Linux files which are included by the three scripts listed above.
 
 <a id="markdown-howtorun" name="howtorun"></a>
 ### 5. How to Run the Example
 
 1. Perform ```mvn clean package``` on this (JMXClient) project.
 
-2. Run the ```ps1\Latencies.ps1 script```.  This program instructs the user to hit
+2. Run the ```ps1\Latencies.ps1``` or ```sh/Latencies.sh``` script in terminal window.  The ```Latencies``` program associated with these scripts instructs the user to hit
        ```<Enter>``` to add threads.  DO NOT HIT ```<Enter>``` YET.
 
-4. Run either the ```ps1\JMXClientThreadCount.ps1``` or ```ps1\JMXClientResponseTime.ps1```
-       script. It will continually poll the Latencies program until the
+4. Run either the ```{ps1\JMXClientThreadCount.ps1,sh/JMXClientThreadCount.sh}``` or ```{ps1\JMXClientResponseTime.ps1,sh/JMXClientResponseTime.sh}```
+       script in a separate terminal window. It will continually poll the Latencies program until the
        designated "trigger" threshold is met.
 
-5. Return to the ```Latencies.ps1``` window and hit ```<ENTER>``` 4 or 5 times.  This 
+5. Return to the ```Latencies``` window and hit ```<ENTER>``` 4 or 5 times.  This 
        should cause the "trigger" threshold to be met causing a Java Flight 
        Recorder dump of the Latencies program to the ```Latencies.jfr``` file.
 
@@ -94,5 +94,4 @@ Our sample JMX scripts (see below) use the ```-interval``` and ```-threshold``` 
 
 <a id="markdown-notes" name="notes"></a>
 ### 5. Notes
-* The scripts to facilitate running these sample programs are Windows-specific.  With a little effort they can be ported to linux/MacOS
-* The scripts require that a version of JDK 17 be used.  The reason for this dependency is that earlier JDK versions used different command-line arguments to invoke Java Flight Recorder.  
+* The scripts require that a version of JDK 17 be used.  The reason for this dependency is that earlier JDK versions used different command-line arguments to invoke Java Flight Recorder.  For this project JDK 17 is a known workable quantity.
